@@ -635,3 +635,80 @@ body {
     color: var(--text-primary);
     margin-bottom: 8px;
 }
+
+/* Language Colors */
+.lang-JavaScript {
+    background: #f1e05a;
+}
+
+.lang-TypeScript {
+    background: #2b7489;
+}
+
+.lang-Python {
+    background: #3572A5;
+}
+
+.lang-Java {
+    background: #b07219;
+}
+
+.lang-HTML {
+    background: #e34c26;
+}
+
+.lang-CSS {
+    background: #563d7c;
+}
+
+.lang-Ruby {
+    background: #701516;
+}
+
+.lang-Go {
+    background: #00ADD8;
+}
+
+.lang-Rust {
+    background: #dea584;
+}
+
+.lang-C\+\+ {
+    background: #f34b7d;
+}
+
+.lang-C {
+    background: #555555;
+}
+
+.lang-PHP {
+    background: #4F5D95;
+}
+
+.lang-Swift {
+    background: #ffac45;
+}
+
+.lang-Kotlin {
+    background: #A97BFF;
+}
+
+.lang-Dart {
+    background: #00B4AB;
+}
+
+.lang-Scala {
+    background: #c22d40;
+}
+
+.lang-R {
+    background: #198CE7;
+}
+
+.lang-Shell {
+    background: #89e051;
+}
+
+.lang-default {
+    background: #8b949e;
+}
