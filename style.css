@@ -397,5 +397,43 @@ body {
     background: var(--bg-tertiary);
 }
 
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-tertiary);
+}
+
+.stat-item {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    border-right: 1px solid var(--border-color);
+    transition: background 0.2s;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-item:hover {
+    background: var(--bg-secondary);
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
 
 
