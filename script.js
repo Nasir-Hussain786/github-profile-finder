@@ -22,3 +22,24 @@ filterButtons.forEach(function(btn) {
         showRepos();
     });
 });
+
+// Main search function
+async function searchUser() {
+    let username = document.getElementById("usernameInput").value.trim();
+    if (!username) return;
+
+    showSection("loading");
+
+    try {
+        let userData  = await fetchData("https://api.github.com/users/" + username);
+        let reposData = await fetchData("https://api.github.com/users/" + username + "/repos?per_page=100");
+
+        allRepos = reposData;
+        showProfile(userData);
+        showRepos();
+        showSection("profileContainer");
+
+    } catch (error) {
+        showSection("error");
+    }
+}
