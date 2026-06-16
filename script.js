@@ -43,3 +43,11 @@ async function searchUser() {
         showSection("error");
     }
 }
+
+// API se data lana
+async function fetchData(url) {
+    let response = await fetch(url);
+    if (response.status === 404) throw new Error("User not found");
+    if (!response.ok)            throw new Error("API error. Try again.");
+    return response.json();
+}
