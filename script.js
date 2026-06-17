@@ -51,3 +51,15 @@ async function fetchData(url) {
     if (!response.ok)            throw new Error("API error. Try again.");
     return response.json();
 }
+
+// Sirf ek section dikhao, baaki chupao
+function showSection(sectionId) {
+    ["loading", "error", "profileContainer"].forEach(function(id) {
+        let el = document.getElementById(id);
+        if (id === sectionId) {
+            el.classList.add("active");
+        } else {
+            el.classList.remove("active");
+        }
+    });
+}
