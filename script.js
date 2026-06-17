@@ -63,3 +63,26 @@ function showSection(sectionId) {
         }
     });
 }
+
+// Profile card fill karo
+function showProfile(user) {
+    setText("profileName",     user.name || user.login);
+    setText("profileUsername", "@" + user.login);
+    setText("profileBio",      user.bio  || "No bio");
+    setText("statFollowers",   formatNumber(user.followers));
+    setText("statFollowing",   formatNumber(user.following));
+    setText("statRepos",       formatNumber(user.public_repos));
+    setText("statGists",       formatNumber(user.public_gists || 0));
+
+    document.getElementById("avatar").src       = user.avatar_url;
+    document.getElementById("profileLink").href = user.html_url;
+
+    // Extra info
+    let meta = "";
+    if (user.location)         meta += '<span class="meta-item">📍 ' + user.location + '</span>';
+    if (user.company)          meta += '<span class="meta-item">🏢 ' + user.company + '</span>';
+    if (user.blog)             meta += '<span class="meta-item">🔗 <a href="' + user.blog + '" target="_blank">' + user.blog + '</a></span>';
+    if (user.twitter_username) meta += '<span class="meta-item">𝕏 @' + user.twitter_username + '</span>';
+
+    document.getElementById("profileMeta").innerHTML = meta;
+}
