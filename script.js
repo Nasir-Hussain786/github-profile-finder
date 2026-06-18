@@ -129,3 +129,15 @@ function showRepos() {
 
     document.getElementById("repoGrid").innerHTML = html;
 }
+
+// Profile URL copy karna
+function copyProfile() {
+    let username   = document.getElementById("profileUsername").textContent.replace("@", "");
+    let profileURL = "https://github.com/" + username;
+
+    navigator.clipboard.writeText(profileURL).then(function() {
+        let btn = document.querySelector(".btn-outline");
+        btn.textContent = "✓ Copied!";
+        setTimeout(function() { btn.textContent = "Copy Link"; }, 2000);
+    });
+}
