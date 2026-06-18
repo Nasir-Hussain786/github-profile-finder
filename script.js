@@ -141,3 +141,15 @@ function copyProfile() {
         setTimeout(function() { btn.textContent = "Copy Link"; }, 2000);
     });
 }
+
+// Element ka text set karna
+function setText(id, text) {
+    document.getElementById(id).textContent = text;
+}
+
+// Number ko readable format mein banana
+function formatNumber(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
+    if (n >= 1000)    return (n / 1000).toFixed(1) + "k";
+    return String(n);
+}
