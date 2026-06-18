@@ -86,3 +86,46 @@ function showProfile(user) {
 
     document.getElementById("profileMeta").innerHTML = meta;
 }
+
+// Repos dikhao
+function showRepos() {
+    let sorted = [...allRepos];
+
+    if (sortBy === "stars")   sorted.sort(function(a, b) { return b.stargazers_count - a.stargazers_count; });
+    if (sortBy === "forks")   sorted.sort(function(a, b) { return b.forks_count - a.forks_count; });
+    if (sortBy === "updated") sorted.sort(function(a, b) { return new Date(b.updated_at) - new Date(a.updated_at); });
+
+    let top8 = sorted.slice(0, 8);
+    setText("reposCount", allRepos.length);
+
+    if (top8.length === 0) {
+        document.getElementById("repoGrid").innerHTML = "<p>No repositories found.</p>";
+        return;
+    }
+
+    let html = "";
+    top8.forEach(function(repo) {
+        let description = repo.description || "No description";
+        let language    = repo.language    || "Unknown";
+        let visibility  = repo.private     ? "Private" : "Public";
+
+        html += `
+        <a href="${repo.html_url}" target="_blank" class="repo-card">
+            <div class="repo-header">
+                <span class="repo-name">${repo.name}</span>
+                <span class="repo-visibility">${visibility}</span>
+            </div>
+            <p class="repo-description">${description}</p>
+            <div class="repo-footer">
+                <span class="repo-language">
+                    <span class="language-dot lang-${language}"></span>
+                    ${language}
+                </span>
+                <span>⭐ ${formatNumber(repo.stargazers_count)}</span>
+                <span>🍴 ${formatNumber(repo.forks_count)}</span>
+            </div>
+        </a>`;
+    });
+
+    document.getElementById("repoGrid").innerHTML = html;
+}
